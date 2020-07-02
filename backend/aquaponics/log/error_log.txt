@@ -1,0 +1,1 @@
+Failed to connect to the database: Access denied for user ''@'localhost' (using password: NO)

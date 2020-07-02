@@ -1,0 +1,6 @@
+This is the program that is meant to run on the computer that the Arduino is connected to via USB. It is responsible for sending the serial communication from the sensor array to the remote server. After calling the PHP scripts, it displays a response in a console window. Below is an explanation of the project folders:
+
+- libSendParams
+    The library that contains the code necessary to send the parameters to the server. It contains no methods to make a serial connection to the Arduino and receive messages. It is therefore used with the comsHandler console application to facilitate this. This library can be referenced by a C++ terminal app that emulates sensor readings (therefore nt requiring to be used in the comsHandler terminal app). This was made due to uncertainty whether or not we will be able to procure an Arduino in time for the deadline.
+- comsHandler
+    A terminal application that should be run on the computer that the Arduino is connected serially to. Due to the inability to test it with a physical Arduino, it is still only an Alpha version. Functions such as detecting when the Arduino isn't connected and automatically selecting the port will be added in the future. If any changes are made to libSendParams, it must be re-referenced in this project.

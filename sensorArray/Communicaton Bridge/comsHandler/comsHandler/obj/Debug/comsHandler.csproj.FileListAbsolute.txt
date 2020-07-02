@@ -1,0 +1,10 @@
+C:\Users\Marius\source\repos\comsHandler\comsHandler\bin\Debug\comsHandler.exe.config
+C:\Users\Marius\source\repos\comsHandler\comsHandler\bin\Debug\comsHandler.exe
+C:\Users\Marius\source\repos\comsHandler\comsHandler\bin\Debug\comsHandler.pdb
+C:\Users\Marius\source\repos\comsHandler\comsHandler\bin\Debug\libSendParams.dll
+C:\Users\Marius\source\repos\comsHandler\comsHandler\bin\Debug\libSendParams.pdb
+C:\Users\Marius\source\repos\comsHandler\comsHandler\obj\Debug\comsHandler.csprojAssemblyReference.cache
+C:\Users\Marius\source\repos\comsHandler\comsHandler\obj\Debug\comsHandler.csproj.CoreCompileInputs.cache
+C:\Users\Marius\source\repos\comsHandler\comsHandler\obj\Debug\comsHandler.csproj.CopyComplete
+C:\Users\Marius\source\repos\comsHandler\comsHandler\obj\Debug\comsHandler.exe
+C:\Users\Marius\source\repos\comsHandler\comsHandler\obj\Debug\comsHandler.pdb

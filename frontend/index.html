@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--Ajax-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!--Google graphs library-->
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <!--JS ajax and graphs-->
+    <script src="/src/charts.js?v=1" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        google.charts.load("current", { packages: ["line", "gauge"] });
+        google.charts.load("current", {
+          callback: drawAllCharts,
+          packages: ["line", "gauge"],
+        });
+        function drawAllCharts() {
+          //Gauge when page uploads
+          $(document).ready(function () {
+            $.ajax({
+              type: "GET",
+              url: "/scripts/Models/latest.php",
+              success: function (response) {
+                if (response != "Fail") {
+                  var jsonData = JSON.parse(response);
+                  console.log(jsonData);
+                  drawGaugeChart(jsonData);
+                } else {
+                  console.log(response);
+                }
+              },
+            });
+          });
+          //Line is drawn and updated when the dates are changed (add a submit button if you want)
+          $("#enddate, #startdate").change(function (e) {
+            console.log("changed");
+            e.preventDefault();
+            $.ajax({
+              type: "GET",
+              url: "/scripts/Models/retrieveHistorical.php?frequency=day",
+              data: $("#getHistory").serialize(),
+              success: function (response) {
+                if (response != "Fail") {
+                  var jsonData = JSON.parse(response);
+                  console.log(jsonData);
+                  drawLineChart(jsonData);
+                } else {
+                  console.log(response);
+                }
+              },
+            });
+          });
+        }
+        $("#day, #week, #month").click(function (e) {
+          console.log("changed");
+            e.preventDefault();
+            $.ajax({
+              type: "GET",
+              url: "/scripts/Models/retrieveHistorical.php?frequency=" + event.target.id,
+              data: $("#getHistory").serialize(),
+              success: function (response) {
+                if (response != "Fail") {
+                  var jsonData = JSON.parse(response);
+                  console.log(jsonData);
+                  drawLineChart(jsonData);
+                } else {
+                  console.log(response);
+                }
+              },
+            });
+        });
+      });
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aquaponics</title>
+  </head>
+  <body>
+    <div style="width: 100%; display: table;">
+      <div style="display: table-row;"></div>
+      <div style="display: table-row;">
+        <div id="gauge_ph" style="width: 200px; display: table-cell;"></div>
+        <div id="gauge_water" style="width: 200px; display: table-cell;"></div>
+        <div id="gauge_do" style="width: 200px; display: table-cell;"></div>
+        <div id="gauge_temp" style="width: 200px; display: table-cell;"></div>
+      </div>
+    </div>
+    <br /><br />
+    <div style="width: 100%; display: table;">
+      <div style="display: table-row;">
+        <button id="day" style="width: 200px; display: table-cell;">Day</button>
+        <button id="week" style="width: 200px; display: table-cell;">
+          Week
+        </button>
+        <button id="month" style="width: 200px; display: table-cell;">
+          Month
+        </button>
+      </div>
+      <div style="display: table-row;">
+        <form id="getHistory" method="post">
+          <div>
+            <label>Start Date:</label>
+            <input
+              style="width: 200px; display: table-cell;"
+              type="date"
+              name="startdate"
+              id="startdate"
+              value="2020-04-21"
+              max=""
+            />
+            <label>End Date:</label>
+            <input
+              style="width: 200px; display: table-cell;"
+              type="date"
+              name="enddate"
+              id="enddate"
+              value="2020-04-30"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="line_chart" style="width: 1200px; height: 500px;"></div>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+C:\Users\Marius\source\repos\libSendParams\libSendParams\bin\Debug\libSendParams.dll
+C:\Users\Marius\source\repos\libSendParams\libSendParams\bin\Debug\libSendParams.pdb
+C:\Users\Marius\source\repos\libSendParams\libSendParams\obj\Debug\libSendParams.csprojAssemblyReference.cache
+C:\Users\Marius\source\repos\libSendParams\libSendParams\obj\Debug\libSendParams.csproj.CoreCompileInputs.cache
+C:\Users\Marius\source\repos\libSendParams\libSendParams\obj\Debug\libSendParams.dll
+C:\Users\Marius\source\repos\libSendParams\libSendParams\obj\Debug\libSendParams.pdb
